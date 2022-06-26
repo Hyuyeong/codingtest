@@ -540,10 +540,114 @@ isPalindrome(12165);
 
 // largestNumber([3, 30, 34, 5, 9]);
 
-var sortList = function (head) {
-  const result = head.sort((a, b) => a - b);
+// var sortList = function (head) {
+//   const result = head.sort((a, b) => a - b);
 
-  return result;
+//   return result;
+// };
+
+// sortList([0, -1, 8, 5]);
+
+// var strStr = function (haystack, needle) {
+//   const arr = Array(...haystack);
+
+//   const arr2 = Array(...needle);
+
+//   // console.log(arr2);
+
+//   let results = [];
+
+//   powerSet([], 0);
+
+//   function powerSet(path, index) {
+//     results.push(path);
+//     for (let i = index; i < arr.length; i++) powerSet([...path, arr[i]], i + 1);
+//   }
+
+//   console.log(results);
+
+//   // console.log(...results.includes(["l"]));
+
+//   console.log(typeof results[26], typeof arr2);
+
+//   console.log(arr2 === results[26]);
+
+//   for (let i = 0; i < results.length; i++) {
+//     if (results[i] === arr2) {
+//       console.log(arr2.length);
+//       // } else {
+//       //   return -1;
+//       // }
+//     }
+//   }
+// };
+
+// var strStr = function (haystack, needle) {
+//   if (haystack === needle || !needle) return 0;
+
+//   const left = haystack.split(needle)[0];
+
+//   console.log(left);
+//   if (haystack === left) return -1;
+
+//   return left.length;
+// };
+
+// strStr("hello", "el");
+
+// var firstUniqChar = function (s) {
+//   console.log(s.lastIndexOf(s[1]));
+
+//   for (let i = 0; i < s.length; i++) {
+//     if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// };
+
+// firstUniqChar("loveletcode");
+
+// var moveZeroes = function (nums) {
+//   let j = 0;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] !== 0) {
+//       // swap elements
+//       [nums[j], nums[i]] = [nums[i], nums[j]];
+//       j++;
+//     }
+//   }
+
+//   console.log(nums);
+// };
+
+// moveZeroes([0, 1, 0, 3, 12]);
+
+// console.log([0, 3, 7, 2, 5, 8, 4, 6, 0, 1].sort((a, b) => a - b));
+
+var longestConsecutive = function (nums) {
+  if (nums.length === 0) return 0;
+  const sort = nums.sort((a, b) => a - b);
+
+  console.log(sort);
+
+  let result = 0;
+  let max = 0;
+
+  for (let i = 0; i < sort.length; i++) {
+    if (sort[i + 1] - sort[i] === 1) {
+      result = result + 1;
+      max = Math.max(max, result);
+    } else if (sort[i + 1] === sort[i]) continue;
+    else {
+      result = 0;
+    }
+  }
+
+  return max;
+
+  console.log(max);
 };
 
-sortList([0, -1, 8, 5]);
+longestConsecutive([9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]);
